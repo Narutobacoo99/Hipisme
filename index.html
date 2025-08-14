@@ -2,175 +2,169 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hiệp | Portfolio</title>
+    <title>Giới Thiệu Bản Thân</title>
     <style>
-        html {
-            scroll-behavior: smooth;
-        }
         body {
             font-family: Arial, sans-serif;
+            background: #232323;
             margin: 0;
-            background: linear-gradient(270deg, #0f2027, #203a43, #2c5364);
-            background-size: 600% 600%;
-            animation: gradientBG 15s ease infinite;
-            color: #e0e0e0;
+            padding: 0;
+            position: relative;
+            min-height: 100vh;
         }
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        header {
-            background: rgba(0, 0, 0, 0.6);
-            color: #00e5ff;
-            padding: 20px 0;
-            text-align: center;
-            backdrop-filter: blur(6px);
-            position: sticky;
+        .background-decor {
+            position: fixed;
             top: 0;
-            z-index: 1000;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            background: url('background.jpg') no-repeat center center;
+            background-size: cover;
+            opacity: 0.13;
+            pointer-events: none;
         }
-        nav a {
-            color: #00e5ff;
-            margin: 0 15px;
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+            background: #2d2d2d;
+            margin: 40px auto;
+            padding: 32px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+            color: #f4f4f4;
+        }
+        h1 {
+            color: #ffd700;
+        }
+        img {
+            width: 120px;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto 20px auto;
+            border: none;
+            box-shadow: none;
+            background: #000;
+        }
+        p {
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        .info {
+            margin-bottom: 16px;
+            font-size: 16px;
+        }
+        strong {
+            color: #ffd700;
+        }
+        .facebook-btn, .gmail-btn {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 10px 24px;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
             text-decoration: none;
             font-weight: bold;
-            transition: color 0.3s ease;
+            font-size: 16px;
+            transition: background 0.2s;
+            box-shadow: 0 2px 8px rgba(24,119,242,0.15);
         }
-        nav a:hover { color: #76ff03; }
-        section {
-            padding: 50px 20px;
-            text-align: center;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.8s ease;
+        .facebook-btn {
+            background: #1877f2;
         }
-        section.show {
-            opacity: 1;
-            transform: translateY(0);
+        .facebook-btn:hover {
+            background: #145db2;
         }
-        .avatar {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 3px solid #00e5ff;
-            margin-bottom: 20px;
-            box-shadow: 0 0 15px rgba(0,229,255,0.8);
+        .gmail-btn {
+            margin-left: 12px;
+            background: #ea4335;
+            box-shadow: 0 2px 8px rgba(234,67,53,0.15);
         }
-        button {
-            background: linear-gradient(45deg, #00e5ff, #76ff03);
-            color: #121212;
-            padding: 12px 24px;
-            border: none;
-            cursor: pointer;
-            font-weight: bold;
-            border-radius: 25px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        .gmail-btn:hover {
+            background: #c13524;
         }
-        button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 15px rgba(0,229,255,0.8);
-        }
-        footer {
-            background: rgba(0, 0, 0, 0.6);
-            color: #bbb;
-            padding: 15px 0;
-            text-align: center;
-            backdrop-filter: blur(6px);
-            margin-top: 30px;
-        }
-        .typing {
-            border-right: 2px solid #00e5ff;
+        .typewriter {
             display: inline-block;
+            border-right: 2px solid #ffd700;
             white-space: nowrap;
             overflow: hidden;
-            animation: blink 0.8s infinite;
+            animation: blink-caret 0.7s steps(1) infinite;
+            font-size: 1.2em; /* Chỉ thu nhỏ tên */
+            font-weight: bold;
+            color: #ffd700;
+            letter-spacing: 1px;
         }
-        @keyframes blink {
-            0%, 50% { border-color: #00e5ff; }
-            51%, 100% { border-color: transparent; }
+        @keyframes blink-caret {
+            0%, 100% { border-color: #ffd700; }
+            50% { border-color: transparent; }
         }
-        #topBtn {
-            display: none;
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 999;
-            background: #00e5ff;
-            color: #121212;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 18px;
-            box-shadow: 0 0 10px rgba(0,229,255,0.8);
+        .slide-up {
+            opacity: 0;
+            transform: translateY(40px);
+            animation: slideUp 0.7s ease-out forwards;
         }
-        #topBtn:hover {
-            background: #76ff03;
+        .slide-up.delay-1 { animation-delay: 0.3s; }
+        .slide-up.delay-2 { animation-delay: 0.5s; }
+        .slide-up.delay-3 { animation-delay: 0.7s; }
+        .slide-up.delay-4 { animation-delay: 0.9s; }
+        .slide-up.delay-5 { animation-delay: 1.1s; }
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1 id="typing" class="typing"></h1>
-        <nav>
-            <a href="#gioithieu">Giới thiệu</a>
-            <a href="#lienhe">Liên hệ</a>
-        </nav>
-    </header>
-
-    <section id="gioithieu">
-        <img src="data:image/png;base64,{{BASE64_HERE}}" alt="Avatar Hiệp" class="avatar">
-        <h2>🌙 Giới thiệu</h2>
-        <p>Mình là Hiệp — lập trình viên yêu thích công nghệ, sáng tạo và học hỏi cái mới.</p>
-    </section>
-
-    <section id="lienhe">
-        <h2>📩 Liên hệ</h2>
-        <p>Email: <a href="mailto:Phamthanhhiep06@gmail.com" style="color:#76ff03;">Phamthanhhiep06@gmail.com</a></p>
-        <button onclick="window.location.href='mailto:Phamthanhhiep06@gmail.com'">Gửi Email</button>
-    </section>
-
-    <footer>
-        &copy; 2025 Hiệp Dev. All rights reserved.
-    </footer>
-
-    <button id="topBtn" title="Lên đầu trang">⬆</button>
-
+    <div class="background-decor"></div>
+    <audio id="bg-music" src="music.mp3" autoplay loop></audio>
     <script>
-        const text = "🚀 Xin chào! Mình là Hiệp";
-        let i = 0;
-        function typeEffect() {
-            if (i < text.length) {
-                document.getElementById("typing").textContent += text.charAt(i);
-                i++;
-                setTimeout(typeEffect, 100);
-            }
-        }
-        window.onload = typeEffect;
-        const sections = document.querySelectorAll("section");
-        function reveal() {
-            sections.forEach(sec => {
-                const rect = sec.getBoundingClientRect();
-                if (rect.top < window.innerHeight - 100) {
-                    sec.classList.add("show");
+        document.addEventListener("DOMContentLoaded", function() {
+            const name = "Phạm Thành Hiệp";
+            const typewriter = document.getElementById("typewriter");
+            let i = 0;
+            function typing() {
+                if (i <= name.length) {
+                    typewriter.textContent = name.slice(0, i);
+                    i++;
+                    setTimeout(typing, 120);
                 }
-            });
-        }
-        window.addEventListener("scroll", reveal);
-        reveal();
-        const topBtn = document.getElementById("topBtn");
-        window.onscroll = function() {
-            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-                topBtn.style.display = "block";
-            } else {
-                topBtn.style.display = "none";
             }
-        };
-        topBtn.onclick = function() {
-            window.scrollTo({top: 0, behavior: 'smooth'});
-        };
+            typing();
+
+            // Đặt âm lượng nhạc nền về 55%
+            var audio = document.getElementById('bg-music');
+            if (audio) audio.volume = 0.55;
+        });
     </script>
+    <div class="container">
+        <img src="avatar.jpg" alt="Ảnh đại diện" class="slide-up delay-1">
+        <h1>
+            <span id="typewriter" class="typewriter"></span>
+        </h1>
+        <div class="info slide-up delay-2">
+            <strong>Email:</strong> Phamthanhhiep06@gmail.com<br>
+            <strong>Điện thoại:</strong> 03834141872
+        </div>
+        <p class="slide-up delay-3">
+            Xin chào! Tôi là Phạm Thành Hiệp, tôi đam mê công nghệ, thích học hỏi những điều mới và luôn nỗ lực phát triển bản thân. Sở thích của tôi là thể thao.
+        </p>
+        <p class="slide-up delay-4">
+            Kỹ năng: Không có.<br>
+            Mục tiêu: Trở thành một lập trình viên xuất sắc và đóng góp cho cộng đồng công nghệ Việt Nam.
+        </p>
+        <div class="slide-up delay-5">
+            <a href="https://www.facebook.com/pham.thanh.hiep.698315/" target="_blank" class="facebook-btn">
+                Facebook cá nhân
+            </a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=phamthanhhiep06@gmail.com" target="_blank" class="gmail-btn">Gửi Gmail</a>
+        </div>
+    </div>
+    <footer style="text-align:center;color:#888;font-size:14px;margin-top:32px;">
+        © 2025 Hiệp Dev. All rights reserved.
+    </footer>
 </body>
 </html>
