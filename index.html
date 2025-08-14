@@ -6,7 +6,7 @@
     <title>Hiệp | Portfolio</title>
     <style>
         html {
-            scroll-behavior: smooth; /* Cuộn mượt */
+            scroll-behavior: smooth;
         }
         body {
             font-family: Arial, sans-serif;
@@ -21,7 +21,6 @@
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-
         header {
             background: rgba(0, 0, 0, 0.6);
             color: #00e5ff;
@@ -40,11 +39,10 @@
             transition: color 0.3s ease;
         }
         nav a:hover { color: #76ff03; }
-
         section {
             padding: 50px 20px;
             text-align: center;
-            opacity: 0; /* Ban đầu ẩn để animation */
+            opacity: 0;
             transform: translateY(20px);
             transition: all 0.8s ease;
         }
@@ -52,8 +50,6 @@
             opacity: 1;
             transform: translateY(0);
         }
-
-        /* Avatar */
         .avatar {
             width: 150px;
             height: 150px;
@@ -62,8 +58,6 @@
             margin-bottom: 20px;
             box-shadow: 0 0 15px rgba(0,229,255,0.8);
         }
-
-        /* Nút */
         button {
             background: linear-gradient(45deg, #00e5ff, #76ff03);
             color: #121212;
@@ -78,49 +72,6 @@
             transform: scale(1.05);
             box-shadow: 0 0 15px rgba(0,229,255,0.8);
         }
-
-        /* Kỹ năng */
-        .skills {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        .skill {
-            background: rgba(0,0,0,0.6);
-            padding: 10px 20px;
-            border-radius: 20px;
-            color: #76ff03;
-            border: 1px solid #76ff03;
-            transition: all 0.3s ease;
-        }
-        .skill:hover {
-            box-shadow: 0 0 15px #76ff03;
-            transform: translateY(-3px);
-        }
-
-        /* Dự án */
-        .projects {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        .project {
-            background: rgba(0,0,0,0.6);
-            padding: 20px;
-            border-radius: 15px;
-            width: 250px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.4);
-            transition: all 0.3s ease;
-        }
-        .project:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 15px #00e5ff;
-        }
-        .project h3 { color: #00e5ff; }
-
-        /* Footer */
         footer {
             background: rgba(0, 0, 0, 0.6);
             color: #bbb;
@@ -129,8 +80,6 @@
             backdrop-filter: blur(6px);
             margin-top: 30px;
         }
-
-        /* Typing effect */
         .typing {
             border-right: 2px solid #00e5ff;
             display: inline-block;
@@ -142,8 +91,6 @@
             0%, 50% { border-color: #00e5ff; }
             51%, 100% { border-color: transparent; }
         }
-
-        /* Nút lên đầu trang */
         #topBtn {
             display: none;
             position: fixed;
@@ -162,14 +109,6 @@
         #topBtn:hover {
             background: #76ff03;
         }
-
-        /* Responsive */
-        @media (max-width: 600px) {
-            .projects, .skills {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
     </style>
 </head>
 <body>
@@ -177,8 +116,6 @@
         <h1 id="typing" class="typing"></h1>
         <nav>
             <a href="#gioithieu">Giới thiệu</a>
-            <a href="#kynang">Kỹ năng</a>
-            <a href="#duan">Dự án</a>
             <a href="#lienhe">Liên hệ</a>
         </nav>
     </header>
@@ -188,37 +125,6 @@
         <img src="https://i.imgur.com/0y8Ftya.png" alt="Avatar Hiệp" class="avatar">
         <h2>🌙 Giới thiệu</h2>
         <p>Mình là Hiệp — lập trình viên yêu thích công nghệ, sáng tạo và học hỏi cái mới.</p>
-    </section>
-
-    <!-- Kỹ năng -->
-    <section id="kynang">
-        <h2>💡 Kỹ năng</h2>
-        <div class="skills">
-            <div class="skill">HTML / CSS / JavaScript</div>
-            <div class="skill">ReactJS</div>
-            <div class="skill">Node.js</div>
-            <div class="skill">Python</div>
-            <div class="skill">Git & GitHub</div>
-        </div>
-    </section>
-
-    <!-- Dự án -->
-    <section id="duan">
-        <h2>🚀 Dự án</h2>
-        <div class="projects">
-            <div class="project">
-                <h3>Portfolio Website</h3>
-                <p>Website cá nhân giới thiệu bản thân, kỹ năng và dự án.</p>
-            </div>
-            <div class="project">
-                <h3>Ứng dụng Ghi chú</h3>
-                <p>App ghi chú đơn giản, lưu trữ trên trình duyệt.</p>
-            </div>
-            <div class="project">
-                <h3>Game Mini</h3>
-                <p>Trò chơi nhỏ viết bằng JavaScript.</p>
-            </div>
-        </div>
     </section>
 
     <!-- Liên hệ -->
@@ -232,11 +138,9 @@
         &copy; 2025 Hiệp Dev. All rights reserved.
     </footer>
 
-    <!-- Nút lên đầu trang -->
     <button id="topBtn" title="Lên đầu trang">⬆</button>
 
     <script>
-        // Hiệu ứng gõ chữ
         const text = "🚀 Xin chào! Mình là Hiệp";
         let i = 0;
         function typeEffect() {
@@ -247,8 +151,6 @@
             }
         }
         window.onload = typeEffect;
-
-        // Hiệu ứng khi cuộn xuống
         const sections = document.querySelectorAll("section");
         function reveal() {
             sections.forEach(sec => {
@@ -260,8 +162,6 @@
         }
         window.addEventListener("scroll", reveal);
         reveal();
-
-        // Nút lên đầu trang
         const topBtn = document.getElementById("topBtn");
         window.onscroll = function() {
             if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
